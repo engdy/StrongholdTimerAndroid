@@ -1,0 +1,19 @@
+<resources>
+    <string name="app_name">Stronghold Timer</string>
+    <string name="app_version">Version %1$s</string>
+    <string name="developer">Developer: Andy Foulke (engdy@bgg)</string>
+    <string name="pause">Pause</string>
+    <string name="reset">Reset</string>
+    <string name="resume">Resume</string>
+    <string name="splash_content_description">Stronghold Games logo</string>
+    <string name="start">Start</string>
+    <string name="title_activity_sploosh">SplooshActivity</string>
+    <string name="title_activity_game_select">GameSelectActivity</string>
+    <string name="title_activity_article27">Article27Activity</string>
+    <string name="title_activity_space_cadets">SpaceCadetsActivity</string>
+    <string name="title_activity_generic_timer">GenericTimerActivity</string>
+    <string name="title_activity_time_nspace">TimeNSpaceActivity</string>
+    <string name="title_activity_space_sheep">SpaceSheepActivity</string>
+    <string name="title_activity_going_going_gone">GoingGoingGoneActivity</string>
+    <string name="article_27_box_top">Article 27 box top</string>
+</resources>
