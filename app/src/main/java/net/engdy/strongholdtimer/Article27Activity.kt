@@ -47,10 +47,10 @@ class Article27Activity : TimerActivity() {
                 }
             }
         }
-//        duration = 300
         resTickingSound = R.raw.ticking
         resFinishedSound = R.raw.buzzer
         resBackgroundSound = R.raw.article27_background
+        playBackgroundSound()
         setSoundAtTime(R.raw.gavel5, 299)
         setSoundAtTime(R.raw.gavel4, 240)
         setSoundAtTime(R.raw.gavel3, 180)
@@ -60,6 +60,7 @@ class Article27Activity : TimerActivity() {
         setSoundAtTime(R.raw.gavel_final, 3)
         reset()
     }
+
     companion object {
         val TAG = Article27Activity::class.simpleName
     }

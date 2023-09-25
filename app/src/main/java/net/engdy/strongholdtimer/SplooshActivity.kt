@@ -35,8 +35,7 @@ class SplooshActivity : ComponentActivity() {
             }
         }
         Handler(Looper.getMainLooper()).postDelayed({
-//            val intent = Intent(this, GameSelectActivity::class.java)
-            val intent = Intent(this, Article27Activity::class.java)
+            val intent = Intent(this, GameSelectActivity::class.java)
             Log.d(TAG, "finish()")
             startActivity(intent)
             finish()

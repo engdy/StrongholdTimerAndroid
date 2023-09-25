@@ -7,7 +7,7 @@ import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.update
 import net.engdy.strongholdtimer.SHGTimer
 
-class Article27ViewModel : ViewModel() {
+class Article27ViewModel() : ViewModel() {
     private val _uiState = MutableStateFlow(Article27UiState())
     val uiState: StateFlow<Article27UiState> = _uiState.asStateFlow()
     private var onTickCallback: ((Long) -> Unit)? = null
