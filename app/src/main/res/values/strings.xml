@@ -17,4 +17,8 @@
     <string name="title_activity_going_going_gone">GoingGoingGoneActivity</string>
     <string name="article_27_box_top">Article 27 box top</string>
     <string name="spacecadets_box_top">Space Cadets box top</string>
+    <string name="timenspace_box_top">Time \'n\' Space box top</string>
+    <string name="goingoinggone_box_top">Going, Going, Gone! box top</string>
+    <string name="spacesheep_box_top">Space Sheep box top</string>
+    <string name="generic_box_top">Generic Timer box top</string>
 </resources>

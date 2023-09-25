@@ -67,6 +67,46 @@ fun GameSelect(
                     }
                 )
             }
+            item {
+                Image(
+                    painter = painterResource(R.drawable.timenspace),
+                    contentDescription = stringResource(R.string.timenspace_box_top),
+                    modifier = Modifier.clickable {
+                        Log.d(GameSelectActivity.TAG, "Clicked Time 'n' Space")
+                        context.startActivity(Intent(context, TimeNSpaceActivity::class.java))
+                    }
+                )
+            }
+            item {
+                Image(
+                    painter = painterResource(R.drawable.ggg),
+                    contentDescription = stringResource(R.string.goingoinggone_box_top),
+                    modifier = Modifier.clickable {
+                        Log.d(GameSelectActivity.TAG, "Clicked Going Going Gone")
+                        context.startActivity(Intent(context, GoingGoingGoneActivity::class.java))
+                    }
+                )
+            }
+            item {
+                Image(
+                    painter = painterResource(R.drawable.spacesheep),
+                    contentDescription = stringResource(R.string.spacesheep_box_top),
+                    modifier = Modifier.clickable {
+                        Log.d(GameSelectActivity.TAG, "Clicked Space Sheep")
+                        context.startActivity(Intent(context, SpaceSheepActivity::class.java))
+                    }
+                )
+            }
+            item {
+                Image(
+                    painter = painterResource(R.drawable.generic),
+                    contentDescription = stringResource(R.string.generic_box_top),
+                    modifier = Modifier.clickable {
+                        Log.d(GameSelectActivity.TAG, "Clicked Generic")
+                        context.startActivity(Intent(context, GenericTimerActivity::class.java))
+                    }
+                )
+            }
         }
     }
 }
