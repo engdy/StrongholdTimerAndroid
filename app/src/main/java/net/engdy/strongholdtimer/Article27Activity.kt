@@ -75,7 +75,7 @@ fun Article27Timer(
     val timerUiState by timerViewModel.uiState.collectAsState()
 
     Box(
-        modifier = Modifier.fillMaxWidth(),
+        modifier = Modifier.fillMaxWidth()
     ) {
         Image(
             painterResource(R.drawable.darkwood),
