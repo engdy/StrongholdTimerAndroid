@@ -1,9 +1,7 @@
 package net.engdy.strongholdtimer
 
-import android.content.pm.ActivityInfo
 import android.os.Bundle
 import android.util.Log
-import android.view.Window
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Box
@@ -27,29 +25,19 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.sp
 import androidx.lifecycle.viewmodel.compose.viewModel
-import net.engdy.strongholdtimer.ui.Article27ViewModel
+import net.engdy.strongholdtimer.ui.TimerViewModel
 import net.engdy.strongholdtimer.ui.theme.StrongholdTimerTheme
 
-class Article27Activity : TimerActivity() {
+class Article27Activity : TimerActivity(
+    duration = FIVE_MINUTES_IN_MILLIS,
+    finalTickingDuration = TEN_SECONDS_IN_MILLIS
+) {
     override fun onCreate(savedInstanceState: Bundle?) {
         Log.d(TAG, "onCreate()")
         super.onCreate(savedInstanceState)
-        requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE
-        requestWindowFeature(Window.FEATURE_NO_TITLE)
-        setContent {
-            StrongholdTimerTheme {
-                // A surface container using the 'background' color from the theme
-                Surface(
-                    modifier = Modifier.fillMaxSize(),
-                    color = MaterialTheme.colorScheme.background
-                ) {
-                    Article27Timer()
-                }
-            }
-        }
-        resTickingSound = R.raw.ticking
         resFinishedSound = R.raw.buzzer
         resBackgroundSound = R.raw.article27_background
+        resTickingSound = R.raw.ticking
         playBackgroundSound()
         setSoundAtTime(R.raw.gavel5, 299)
         setSoundAtTime(R.raw.gavel4, 240)
@@ -58,18 +46,33 @@ class Article27Activity : TimerActivity() {
         setSoundAtTime(R.raw.gavel1, 60)
         setSoundAtTime(R.raw.parliament, 10)
         setSoundAtTime(R.raw.gavel_final, 3)
+        setContent {
+            StrongholdTimerTheme {
+                // A surface container using the 'background' color from the theme
+                Surface(
+                    modifier = Modifier.fillMaxSize(),
+                    color = MaterialTheme.colorScheme.background
+                ) {
+                    Article27Timer(
+                        timerViewModel = timerViewModel
+                    )
+                }
+            }
+        }
         reset()
     }
 
     companion object {
         val TAG = Article27Activity::class.simpleName
+        private const val TEN_SECONDS_IN_MILLIS = 10_000L
+        private const val FIVE_MINUTES_IN_MILLIS = 300_000L
     }
 }
 
 @Composable
 fun Article27Timer(
     modifier: Modifier = Modifier,
-    timerViewModel: Article27ViewModel = viewModel()
+    timerViewModel: TimerViewModel = viewModel()
 ) {
     val image = painterResource(R.drawable.article27)
     val timerUiState by timerViewModel.uiState.collectAsState()
