@@ -12,12 +12,15 @@ import androidx.activity.compose.setContent
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
@@ -49,7 +52,10 @@ class SplooshActivity : ComponentActivity() {
 @Composable
 fun Credits(version: String) {
     Column {
-        Text(text = stringResource(R.string.app_name))
+        Text(
+            text = stringResource(R.string.app_name),
+            fontSize = 30.sp
+        )
         Text(text = stringResource(R.string.app_version, version))
         Text(text = stringResource(R.string.developer))
     }
@@ -62,12 +68,17 @@ fun Splash(version: String) {
         modifier = Modifier.fillMaxSize(),
         color = MaterialTheme.colorScheme.background
     ) {
-        Row() {
+        Row(
+            verticalAlignment = Alignment.CenterVertically,
+            modifier = Modifier.fillMaxHeight()
+        ) {
             Image(
                 painter = painterResource(id = R.drawable.ic_stronghold),
                 contentDescription = stringResource(
                     id = R.string.splash_content_description
-                )
+                ),
+                modifier = Modifier.fillMaxHeight(),
+                contentScale = ContentScale.FillHeight
             )
             Credits(version)
         }
