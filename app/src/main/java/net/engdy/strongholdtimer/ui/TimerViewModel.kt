@@ -111,6 +111,13 @@ open class TimerViewModel(
         }
     }
 
+    fun secondsToString(seconds: Int): String {
+        val mins = seconds / 60
+        val tens = (seconds % 60) / 10
+        val secs = seconds % 10
+        return "${mins}:${tens}${secs}"
+    }
+
     companion object {
         val TAG = TimerViewModel::class.simpleName
         const val TEN_SECONDS_IN_MILLIS = 10_000L

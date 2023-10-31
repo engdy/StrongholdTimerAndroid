@@ -8,6 +8,7 @@ import android.os.Bundle
 import android.util.Log
 import android.util.SparseIntArray
 import android.view.Window
+import android.view.WindowManager
 import androidx.activity.ComponentActivity
 import net.engdy.strongholdtimer.ui.TimerViewModel
 
@@ -29,8 +30,9 @@ open class TimerActivity(
         super.onCreate(savedInstanceState)
         requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE
         requestWindowFeature(Window.FEATURE_NO_TITLE)
+        window.addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON)
         val prefs: SharedPreferences = getPreferences(Context.MODE_PRIVATE)
-        isBackgroundSoundPlaying = prefs.getBoolean(PREF_BACKGROUND_SOUND_PLAYING, true)
+        isBackgroundSoundPlaying = prefs.getBoolean(PREF_BACKGROUND_SOUND_PLAYING, false)
         timerViewModel = TimerViewModel(
             duration = duration,
             soundsAtTime = resSoundAtTime,
@@ -106,6 +108,13 @@ open class TimerActivity(
         playerTicking?.stop()
         playerTicking?.release()
         playerTicking = null
+    }
+
+    protected fun secondsToString(seconds: Int): String {
+        val mins = seconds / 60
+        val tens = (seconds % 60) / 10
+        val secs = seconds % 10
+        return "${mins}:${tens}${secs}"
     }
 
     companion object {

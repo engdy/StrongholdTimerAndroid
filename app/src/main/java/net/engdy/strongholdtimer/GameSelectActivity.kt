@@ -12,11 +12,9 @@ import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.IntrinsicSize
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -29,7 +27,7 @@ import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
-import net.engdy.strongholdtimer.ui.theme.StrongholdTimerTheme
+import net.engdy.strongholdtimer.ui.theme.Article27Theme
 
 class GameSelectActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -38,7 +36,7 @@ class GameSelectActivity : ComponentActivity() {
         requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE
 
         setContent {
-            StrongholdTimerTheme {
+            Article27Theme {
                 GameSelect()
             }
         }
@@ -170,7 +168,7 @@ fun GameSelect(
 @Preview(showBackground = true)
 @Composable
 fun GameSelectPreview() {
-    StrongholdTimerTheme {
+    Article27Theme {
         GameSelect()
     }
 }

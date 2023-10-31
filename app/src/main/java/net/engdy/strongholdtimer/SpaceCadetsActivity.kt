@@ -10,13 +10,13 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
-import net.engdy.strongholdtimer.ui.theme.StrongholdTimerTheme
+import net.engdy.strongholdtimer.ui.theme.Article27Theme
 
 class SpaceCadetsActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
-            StrongholdTimerTheme {
+            Article27Theme {
                 // A surface container using the 'background' color from the theme
                 Surface(
                     modifier = Modifier.fillMaxSize(),
@@ -37,7 +37,7 @@ fun Greeting4(name: String) {
 @Preview(showBackground = true)
 @Composable
 fun DefaultPreview4() {
-    StrongholdTimerTheme {
+    Article27Theme {
         Greeting4("Android")
     }
 }
