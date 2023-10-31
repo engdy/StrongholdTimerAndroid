@@ -4,12 +4,15 @@ import android.os.Bundle
 import android.util.Log
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.width
 import androidx.compose.material3.Button
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
@@ -17,16 +20,17 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
-import androidx.compose.ui.unit.sp
+import androidx.compose.ui.unit.em
 import androidx.lifecycle.viewmodel.compose.viewModel
 import net.engdy.strongholdtimer.ui.TimerViewModel
-import net.engdy.strongholdtimer.ui.theme.StrongholdTimerTheme
+import net.engdy.strongholdtimer.ui.theme.Article27Theme
 
 class Article27Activity : TimerActivity(
     duration = FIVE_MINUTES_IN_MILLIS,
@@ -47,7 +51,7 @@ class Article27Activity : TimerActivity(
         setSoundAtTime(R.raw.parliament, 10)
         setSoundAtTime(R.raw.gavel_final, 3)
         setContent {
-            StrongholdTimerTheme {
+            Article27Theme {
                 // A surface container using the 'background' color from the theme
                 Surface(
                     modifier = Modifier.fillMaxSize(),
@@ -78,7 +82,7 @@ fun Article27Timer(
     val timerUiState by timerViewModel.uiState.collectAsState()
 
     Box(
-        modifier = Modifier.fillMaxWidth()
+        modifier = Modifier.fillMaxSize()
     ) {
         Image(
             painterResource(R.drawable.darkwood),
@@ -86,17 +90,27 @@ fun Article27Timer(
             contentScale = ContentScale.FillBounds,
             modifier = Modifier.matchParentSize()
         )
-        Row()
+        Row(
+            modifier = Modifier.fillMaxSize(),
+            verticalAlignment = Alignment.CenterVertically
+        )
         {
             Image(
                 painter = image,
                 contentDescription = stringResource(R.string.article_27_box_top),
-                modifier.padding(dimensionResource(R.dimen.padding_medium))
+                modifier
+                    .padding(dimensionResource(R.dimen.padding_medium))
+                    .fillMaxHeight(0.75f)
             )
-            Column() {
+            Column(
+                modifier = Modifier.fillMaxSize(),
+                horizontalAlignment = Alignment.CenterHorizontally,
+                verticalArrangement = Arrangement.Center
+            ) {
                 Text(
-                    text = secondsToString(timerUiState.secondsLeft),
-                    fontSize = 100.sp
+                    modifier = modifier.fillMaxHeight(0.7f),
+                    text = timerViewModel.secondsToString(timerUiState.secondsLeft),
+                    fontSize = 50.em
                 )
                 Row() {
                     Button(
@@ -112,6 +126,9 @@ fun Article27Timer(
                             }
                         )
                     }
+                    Spacer(
+                        modifier = Modifier.width(dimensionResource(R.dimen.padding_medium))
+                    )
                     Button(
                         onClick = {
                             timerViewModel.resetTimer()
@@ -127,17 +144,10 @@ fun Article27Timer(
     }
 }
 
-private fun secondsToString(seconds: Int): String {
-    val mins = seconds / 60
-    val tens = (seconds % 60) / 10
-    val secs = seconds % 10
-    return "${mins}:${tens}${secs}"
-}
-
 @Preview(showBackground = true)
 @Composable
 fun Article27Preview() {
-    StrongholdTimerTheme {
+    Article27Theme {
         Article27Timer()
     }
 }

@@ -5,6 +5,7 @@
     <string name="pause">Pause</string>
     <string name="reset">Reset</string>
     <string name="resume">Resume</string>
+    <string name="set_time">Set Time</string>
     <string name="splash_content_description">Stronghold Games logo</string>
     <string name="start">Start</string>
     <string name="title_activity_sploosh">SplooshActivity</string>

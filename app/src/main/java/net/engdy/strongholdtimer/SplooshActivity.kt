@@ -24,8 +24,7 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
-import androidx.compose.ui.unit.sp
-import net.engdy.strongholdtimer.ui.theme.StrongholdTimerTheme
+import net.engdy.strongholdtimer.ui.theme.Article27Theme
 
 class SplooshActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -34,7 +33,7 @@ class SplooshActivity : ComponentActivity() {
         requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE
         requestWindowFeature(Window.FEATURE_NO_TITLE)
         setContent {
-            StrongholdTimerTheme {
+            Article27Theme {
                 Splash(version = "1.0.0")
             }
         }
@@ -89,7 +88,7 @@ fun Splash(version: String) {
 @Preview(showBackground = true)
 @Composable
 fun SplashPreview() {
-    StrongholdTimerTheme() {
+    Article27Theme() {
         Splash("0.9.9")
     }
 }
